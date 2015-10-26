@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" android:weightSum="1">
+
+    <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Goal Same Side"
+            android:id="@+id/buttonGoalSameSide" android:layout_weight="0.49"/>
+    <Button
+            android:layout_width="395dp"
+            android:layout_height="wrap_content"
+            android:text="Goal Other Side"
+            android:id="@+id/buttonGoalOtherSide" android:layout_weight="0.37"/>
+    <Button
+            android:layout_width="match_parent"
+            android:layout_height="101dp"
+            android:text="End Game"
+            android:id="@+id/buttonEndGame"/>
+</LinearLayout>
