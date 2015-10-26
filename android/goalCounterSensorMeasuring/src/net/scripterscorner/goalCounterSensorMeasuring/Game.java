@@ -61,22 +61,22 @@ public class Game extends Activity implements SensorEventListener {
         gravity = new float[3];
         linear_acceleration = new float[3];
 
-        final Button button = (Button) findViewById(R.id.buttonGoalOtherSide);
-        button.setOnClickListener(new View.OnClickListener() {
+        final Button buttonGoalOtherSide = (Button) findViewById(R.id.buttonGoalOtherSide);
+        buttonGoalOtherSide.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 goalOtherSide = true;
             }
         });
 
-        final Button buttonOtherSide = (Button) findViewById(R.id.buttonGoalSameSide);
-        button.setOnClickListener(new View.OnClickListener() {
+        final Button buttonGoalSameSide = (Button) findViewById(R.id.buttonGoalSameSide);
+        buttonGoalSameSide.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 goalSameSide = true;
             }
         });
 
         final Button buttonEndGame = (Button) findViewById(R.id.buttonEndGame);
-        button.setOnClickListener(new View.OnClickListener() {
+        buttonEndGame.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(getBaseContext(), GoalCounterSensorMeasuring.class);
                 startActivity(intent);
