@@ -83,7 +83,7 @@ public class Game extends Activity implements SensorEventListener {
             }
         });
 
-        File sdCard = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
+        File sdCard = Environment.getExternalStorageDirectory();
         dir = new File (sdCard.getAbsolutePath() + "/goalCounter");
         dir.mkdirs();
         file = new File(dir, filename + curDateExtension);
@@ -109,9 +109,10 @@ public class Game extends Activity implements SensorEventListener {
         linear_acceleration[1] = event.values[1] - gravity[1];
         linear_acceleration[2] = event.values[2] - gravity[2];
 
-        String data = "" + formatter.format(new Date()) + gravity[0] + ";" + gravity[1] + ";" + gravity[2] +
-                linear_acceleration[0] + ";" + linear_acceleration[1] + ";" + linear_acceleration[2]
-                + goalOtherSide + goalSameSide + "\n";
+        String data = "" + formatter.format(new Date()) + ";" + System.currentTimeMillis() + ";" + gravity[0] + ";" +
+                gravity[1] + ";" + gravity[2] +";" +
+                linear_acceleration[0] + ";" + linear_acceleration[1] + ";" + linear_acceleration[2]+ ";"
+                + ";" + goalOtherSide + ";" + goalSameSide + "\n";
 
        // Log.d(TAG_GRAVITY, "" + gravity[0] + ";" + gravity[1] + ";" + gravity[2]);
        // Log.d(TAG_ACCE,"" + linear_acceleration[0] + ";" + linear_acceleration[1] + ";" + linear_acceleration[2]);
@@ -152,23 +153,5 @@ public class Game extends Activity implements SensorEventListener {
         return false;
     }
 
-    public File getDocumentsStorageDir(String docName) {
-        // Get the directory for the user's public pictures directory.
-        File file = new File(Environment.getExternalStoragePublicDirectory(
-                Environment.DIRECTORY_DOCUMENTS), docName);
-        if (!file.mkdirs()) {
-            Log.e(LOG_TAG, "Directory not created");
-        }
-        return file;
-    }
 
-    public File getDocumentsStorageDir(Context context, String docName) {
-        // Get the directory for the app's private pictures directory.
-        File file = new File(context.getExternalFilesDir(
-                Environment.DIRECTORY_DOCUMENTS), docName);
-        if (!file.mkdirs()) {
-            Log.e(LOG_TAG, "Directory not created");
-        }
-        return file;
-    }
 }
